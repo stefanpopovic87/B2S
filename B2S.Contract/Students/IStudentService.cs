@@ -4,7 +4,10 @@ namespace B2S.Contract.Students
 {
     public interface IStudentService
     {
-        Task<IEnumerable<StudentDto>> GetAllStudentsAsync(StudentSearchDto studentSearch);
         Task CreateStudentAsync(CreateStudentDto createStudent);
+        Task UpdateStudentAsync(UpdateStudentDto updateStudent);
+        Task DeleteStudentAsync(int id);
+
+        Task<IEnumerable<StudentDto>> GetAllStudentsAsync(StudentSearchDto studentSearch);
     }
 }

@@ -6,8 +6,10 @@ namespace B2S.Contract.Courses
     public interface ICourseService
     {
         Task CreateCourseAsync(CreateCourseDto createCourse);
-        Task DeleteCourseAsync(DeleteCourseDto deleteCourse);
-        Task<PagedResult<CourseDto>> GetAllCoursesAsync(SearchCourseDto searchCourse);
+        Task UpdateCourseAsync(UpdateCourseDto updateCourse);
+        Task DeleteCourseAsync(int id);
+        Task DeleteCoursesByStudentIdAsync(DeleteCourseDto deleteCourse);
+        Task<PagedResult<CourseDto>> SearchCoursesAsync(SearchCourseDto searchCourse);
         Task<GetCourseDetailsResponse> GetExternalCourseDetailsAsync(long code);
 
     }

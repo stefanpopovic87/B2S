@@ -38,6 +38,8 @@ namespace B2S.Service.StudentCoursesService
 
             studentCourse.Grade = studentCourseDto.Grade;
 
+            studentCourse.Update();
+
             await _studentCoursesRepository.UpdateAsync(studentCourse);
 
             await _unitOfWork.CommitAsync();

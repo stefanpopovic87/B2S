@@ -17,6 +17,7 @@ namespace B2S.Query.Courses
         {
             _ctx = ctx;
         }
+
         public async Task<PagedResult<CourseDto>> GetAllCoursesAsync2(SearchCourseDto searchCourse)
         {
             var courses =  await _ctx.Courses
@@ -35,7 +36,7 @@ namespace B2S.Query.Courses
             return courses;
         }
 
-        public async Task<PagedResult<CourseDto>> GetAllCoursesAsync(SearchCourseDto searchCourse)
+        public async Task<PagedResult<CourseDto>> SearchCoursesAsync(SearchCourseDto searchCourse)
         {
             var courses = await _ctx.StudentCourses
                 .Include(x => x.Student)

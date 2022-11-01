@@ -1,9 +1,11 @@
 ﻿using B2S.Contract.Client;
 using B2S.Contract.Courses;
+using B2S.Contract.StudentCourses;
 using B2S.Contract.Students;
 using B2S.Infrastructure.Pagination;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace B2S.API.Controllers
@@ -28,13 +30,24 @@ namespace B2S.API.Controllers
             await _courseService.CreateCourseAsync(createCourse);
         }
 
-        // this method is responsible for delete course
-        [HttpDelete("/deleteCourse")]
-        public async Task DeleteCourseAsync(DeleteCourseDto deleteCourse)
+        [HttpPut("/updateCourse")]
+        public async Task UpdateCourseAsync(UpdateCourseDto updateCourse)
         {
-            await _courseService.DeleteCourseAsync(deleteCourse);
+            await _courseService.UpdateCourseAsync(updateCourse);
         }
 
+        [HttpDelete("/deleteCourse")]
+        public async Task DeleteCourseAsync(int id)
+        {
+            await _courseService.DeleteCourseAsync(id);
+        }
+
+        // this method is responsible for delete course
+        [HttpDelete("/deleteCoursesByStudentId")]
+        public async Task DeleteCoursesByStudentIdAsync(DeleteCourseDto deleteCourse)
+        {
+            await _courseService.DeleteCoursesByStudentIdAsync(deleteCourse);
+        }
 
         /* Assignment 1
         * 
@@ -43,10 +56,10 @@ namespace B2S.API.Controllers
         * The returned list of courses should be sorted by Name in ascending order.
         * The endpoint should support partial search - it accept search term and returns only courses which Name contains search term.
         */
-        [HttpGet("/getAllCourses")]
-        public async Task<ActionResult<PagedResult<CourseDto>>> GetAllCoursesAsync([FromQuery] SearchCourseDto searchCourse)
+        [HttpGet("/searchCourses")]
+        public async Task<ActionResult<PagedResult<CourseDto>>> SearchCoursesAsync([FromQuery] SearchCourseDto searchCourse)
         {
-            return (await _courseService.GetAllCoursesAsync(searchCourse));
+            return (await _courseService.SearchCoursesAsync(searchCourse));
         }
 
 
@@ -60,6 +73,6 @@ namespace B2S.API.Controllers
         public async Task<GetCourseDetailsResponse> GetExternalCourseDetailsAsync(long code)
         {
             return await _courseService.GetExternalCourseDetailsAsync(code);
-        }        
+        }
     }
 }

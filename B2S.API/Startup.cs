@@ -37,7 +37,7 @@ namespace B2S.API
             {
                 var context = scope.ServiceProvider.GetService<ApplicationContext>();
                 context.Database.EnsureCreated();
-                InitialData.SeedData(context);
+                //InitialData.SeedData(context);
             }
 
 

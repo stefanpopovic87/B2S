@@ -4,6 +4,6 @@ namespace B2S.Contract.Courses
 {
     public interface ICourseQuery
     {
-        Task<PagedResult<CourseDto>> GetAllCoursesAsync(SearchCourseDto paginationFilter);
+        Task<PagedResult<CourseDto>> SearchCoursesAsync(SearchCourseDto paginationFilter);
     }
 }

@@ -46,7 +46,38 @@ namespace B2S.Service.Courses
             await _unitOfWork.CommitAsync();
         }
 
-        public async Task DeleteCourseAsync(DeleteCourseDto deleteCourse)
+        public async Task UpdateCourseAsync(UpdateCourseDto updateCourse)
+        {
+            var course = await _courseRepository.GetByIdAsync(updateCourse.Id);
+
+            if (course != null)
+            {
+                course.Name = updateCourse.Name;
+                course.Code = updateCourse.Code;
+
+                course.Update();
+
+                await _courseRepository.UpdateAsync(course);
+
+                await _unitOfWork.CommitAsync();
+            }
+        }
+
+        public async Task DeleteCourseAsync(int id)
+        {
+            var course = await _courseRepository.GetByIdAsync(id);
+
+            if (course != null)
+            {
+                course.Delete();
+
+                await _courseRepository.UpdateAsync(course);
+
+                await _unitOfWork.CommitAsync();
+            }
+        }
+
+        public async Task DeleteCoursesByStudentIdAsync(DeleteCourseDto deleteCourse)
         {
             var student = await _studentRepository.GetByIdAsync(deleteCourse.StudentId);
 
@@ -62,9 +93,9 @@ namespace B2S.Service.Courses
 
         }
 
-        public async Task<PagedResult<CourseDto>> GetAllCoursesAsync(SearchCourseDto searchCourse)
+        public async Task<PagedResult<CourseDto>> SearchCoursesAsync(SearchCourseDto searchCourse)
         {
-            return await _courseQuery.GetAllCoursesAsync(searchCourse);
+            return await _courseQuery.SearchCoursesAsync(searchCourse);
         }
 
         public async Task<GetCourseDetailsResponse> GetExternalCourseDetailsAsync(long code)
