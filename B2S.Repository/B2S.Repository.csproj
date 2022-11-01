@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\B2S.Context\B2S.Context.csproj" />
+    <ProjectReference Include="..\B2S.Infrastructure\B2S.Infrastructure.csproj" />
+    <ProjectReference Include="..\B2S.Model\B2S.Model.csproj" />
+  </ItemGroup>
+
+</Project>
