@@ -37,12 +37,6 @@ namespace B2S.Query.Courses
 
         public async Task<PagedResult<CourseDto>> GetAllCoursesAsync(SearchCourseDto searchCourse)
         {
-            //var query = await _ctx.StudentCourses
-            //    .Include(x => x.Student)
-            //    .Include(x => x.Course)
-            //    .Where(x => x.IsActive && x.Course.Name.ToLower().Contains(searchCourse.Term.Trim().ToLower()))
-            //    .AsQueryable();
-
             var courses = await _ctx.StudentCourses
                 .Include(x => x.Student)
                 .Include(x => x.Course)
@@ -60,31 +54,5 @@ namespace B2S.Query.Courses
 
             return courses;
         }
-
-        //public async Task<PagedResult<CourseDto>> GetAllCoursesAsync2(SearchCourseDto searchCourse)
-        //{
-        //    //var query = await _ctx.StudentCourses
-        //    //    .Include(x => x.Student)
-        //    //    .Include(x => x.Course)
-        //    //    .Where(x => x.IsActive && x.Course.Name.ToLower().Contains(searchCourse.Term.Trim().ToLower()))
-        //    //    .AsQueryable();
-
-        //    var courses = await _ctx.StudentCourses
-        //        .Include(x => x.Student)
-        //        .Include(x => x.Course)
-        //        .Where(x => x.IsActive && x.Course.Name.ToLower().Contains(searchCourse.Term.Trim().ToLower()))
-        //        .GroupBy(x => x.CourseId, (key ,c) => new { CourseId = key, Name = c })
-        //        .Select(x => new CourseDto
-        //        {
-        //            Id = x.CourseId,
-        //            Name = x.c.Where(sc => sc.CourseId == x.CourseId).FirstOrDefault()
-        //            Code = x.Key.Code,
-        //            AverageGrade = x.Key.st
-        //        })
-        //        .OrderBy(x => x.Name)
-        //        .GetPagedResultAsync(searchCourse.Page, searchCourse.PageSize);
-
-        //    return courses;
-        //}
     }
 }

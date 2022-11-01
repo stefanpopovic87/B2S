@@ -3,7 +3,7 @@ using B2S.Contract.StudentCourses;
 using B2S.Contract.Students;
 using Microsoft.EntityFrameworkCore;
 
-namespace B2S.Query.Student
+namespace B2S.Query.Students
 {
     public class StudentQuery : IStudentQuery
     {

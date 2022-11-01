@@ -8,7 +8,7 @@ using B2S.Model.Courses;
 using B2S.Model.StudentCourses;
 using B2S.Model.Students;
 using B2S.Query.Courses;
-using B2S.Query.Student;
+using B2S.Query.Students;
 using B2S.Repository;
 using B2S.Repository.Courses;
 using B2S.Repository.StudentCourses;

@@ -4,8 +4,6 @@
     {
         Task<TEntity> GetByIdAsync(TKey id, bool includeDetails = true, CancellationToken cancellationToken = default);
 
-        //Task<IEnumerable<TEntity>> GetByIdsAsync(IEnumerable<TKey> ids, bool includeDetails = true, CancellationToken cancellationToken = default);
-
         Task<IEnumerable<TEntity>> GetAllAsync(bool includeDetails = true, CancellationToken cancellationToken = default);
     }
 

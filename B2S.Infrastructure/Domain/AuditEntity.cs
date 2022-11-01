@@ -28,7 +28,7 @@ namespace B2S.Infrastructure.Domain
 
         public void Delete(bool isActive = false)
         {
-            isActive = isActive;
+            IsActive = isActive;
             DateDeleted = DateTime.Now;
         }
 
@@ -40,9 +40,6 @@ namespace B2S.Infrastructure.Domain
         }
     }
 
-    /// <summary>
-    /// Shortcut audit entity class for entities with Id of type int.
-    /// </summary>
     public class AuditEntity : AuditEntity<int>
     {
     }
