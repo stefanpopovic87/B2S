@@ -35,11 +35,8 @@ namespace B2S.Service.Courses
             var course = new Course
             {
                 Name = createCourse.Name,
-                Code = createCourse.Code
-               
+                Code = createCourse.Code               
             };
-
-            course.Create();
 
             await _courseRepository.InsertAsync(course);
 
@@ -54,8 +51,6 @@ namespace B2S.Service.Courses
             {
                 course.Name = updateCourse.Name;
                 course.Code = updateCourse.Code;
-
-                course.Update();
 
                 await _courseRepository.UpdateAsync(course);
 

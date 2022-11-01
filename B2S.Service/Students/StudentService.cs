@@ -32,8 +32,6 @@ namespace B2S.Service.Students
                 Email = createStudent.Email
             };
 
-            student.Create();
-
             await _studentRepository.InsertAsync(student);
 
             await _unitOfWork.CommitAsync();
@@ -48,8 +46,6 @@ namespace B2S.Service.Students
                 student.FirstName = updateStudent.FirstName;
                 student.LastName = updateStudent.LastName;
                 student.Email = updateStudent.Email;
-
-                student.Update();
 
                 await _studentRepository.UpdateAsync(student);
 

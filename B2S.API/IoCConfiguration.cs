@@ -34,7 +34,6 @@ namespace B2S.API
         private static void ConfigureRepositories(IServiceCollection services)
         {
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<AuditEntityInterceptor>();
             services.AddTransient<IStudentRepository, StudentRepository>();
             services.AddTransient<ICourseRepository, CourseRepository>();
             services.AddTransient<IStudentCoursesRepository, StudentCoursesRepository>();

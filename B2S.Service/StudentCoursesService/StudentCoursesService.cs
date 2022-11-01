@@ -25,8 +25,6 @@ namespace B2S.Service.StudentCoursesService
                 Grade = studentCourseDto.Grade
             };
 
-            studentCourse.Create();
-
             await _studentCoursesRepository.InsertAsync(studentCourse);
 
             await _unitOfWork.CommitAsync();
@@ -37,8 +35,6 @@ namespace B2S.Service.StudentCoursesService
             var studentCourse = await _studentCoursesRepository.GetByStudentIdAndCourseIdAsync(studentCourseDto.StudentId, studentCourseDto.CourseId);
 
             studentCourse.Grade = studentCourseDto.Grade;
-
-            studentCourse.Update();
 
             await _studentCoursesRepository.UpdateAsync(studentCourse);
 
