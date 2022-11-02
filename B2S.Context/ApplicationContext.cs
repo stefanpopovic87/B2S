@@ -28,7 +28,7 @@ namespace B2S.Context
             foreach (var insertedEntry in insertedEntries)
             {
                 var auditableEntity = insertedEntry as AuditEntity;
-                //If the inserted object is an Auditable. 
+                //If the inserted object is an AuditEntity. 
                 if (auditableEntity != null)
                 {
                     auditableEntity.Create();
@@ -41,7 +41,7 @@ namespace B2S.Context
 
             foreach (var modifiedEntry in modifiedEntries)
             {
-                //If the inserted object is an Auditable. 
+                //If the inserted object is an AuditEntity. 
                 var auditableEntity = modifiedEntry as AuditEntity;
                 if (auditableEntity != null)
                 {
